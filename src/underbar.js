@@ -41,7 +41,7 @@
     if (n === 0) {
       return [];
     }
-    return n === undefined ? array[array.length - 1] : array.slice(-n)
+    return n === undefined ? array[array.length - 1] : array.slice(-n);
   };
 
   // Call iterator(value, key, collection) for each element of collection.
@@ -135,10 +135,12 @@
     if (iterator === undefined) {
       iterator = _.identity;
     }
+
     var result = [];
-    _.each(collection, function(item, i, collection) {
-      result.push(iterator(item, i, collection));
-    })
+    var tempArr = collection.slice();
+    _.each(tempArr, function(item, i, tempArr) {
+      result.push(iterator(item, i, tempArr));
+    });
     return result;
   };
 
